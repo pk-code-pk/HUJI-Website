@@ -1,0 +1,244 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Afacad Flux', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto; 
+}
+
+/* Navigation Bar Styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+}
+
+/* Navigation Links */
+header .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+header .nav-links li {
+    margin-left: 3.8vw;
+}
+ 
+
+header .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 300;
+    font-size: 1.2vw;
+}
+
+/* Hover Effects */
+header .nav-links li:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Menu Toggle Button (Hamburger Menu) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    z-index:100; 
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh; /* Full height */
+    width: 100%; /* Full width */
+    overflow: hidden;
+    
+}
+
+#background-video {
+    position: absolute;
+    top: 40;
+    left: 0;
+    min-width: 100%; /* Ensure video fills the container */
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Send it backward */
+    filter: brightness(70%);
+}
+
+/* Center the hero content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.hero-content .video-text img {
+    width: 600px; /* Default size */
+    height: auto;
+    animation: fadeIn 2s forwards;
+}
+
+.hero-content p {
+    font-size: 2vw;
+    font-family: "Afacad Flux", sans-serif;
+    font-weight: 300;
+    margin-bottom: 30px;
+    text-shadow: 0 20px 20px rgb(0, 0, 0);
+    animation: fadeIn 2s forwards;
+}
+
+/* Scrollable Content */
+.content h2 {
+    padding: 15px 20px;
+    font-family: 'Afacad Flux', sans-serif;
+    font-size: 2vw; 
+ 
+}
+.content {
+    background-color: white; 
+
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 0;
+    font-family: "Afacad Flux", sans-serif;
+    font-size: 1.7vw;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    position: absolute;
+    align-items: center; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.scrolled .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Mobile Styles for 425px and below */
+@media (max-width: 425px) {
+    /* Header Adjustments */
+    header {
+        padding: 10px 20px;
+    }
+
+    /* Hide the nav-links and show the menu toggle */
+    header .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+
+    
+    /* Show the toggle button */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* When the menu is open */
+    header .nav-links.open {
+        display: flex;
+    }
+
+    header .nav-links li {
+        margin: 20px 0;
+    }
+
+    header .nav-links a {
+        font-size: 1.5rem;
+    }
+
+    /* Logo and Hero Content Adjustments */
+    .hero-content .video-text img {
+        width: 275px !important; /* Smaller logo on mobile */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Video on mobile */
+    #background-video {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover; /* Keep the aspect ratio */
+        filter: brightness(70%);
+    }
+.content h2 {
+font-size: 1.5rem; 
+}
+.content p {
+    font-size: 1rem; 
+}
+    /* Remove Fallback Image since we are keeping the video */
+    
+}
+
+
+
+
+
